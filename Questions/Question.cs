@@ -2,7 +2,7 @@ using System;
 
 namespace ExamSystem
 {
-    public abstract class Question
+    public abstract class Question: ICloneable 
     {
         public string Header { get; protected set; }
         public string Body { get; protected set; }
@@ -21,7 +21,15 @@ namespace ExamSystem
             Marks         = marks;
             Answers       = new AnswerList();
         }
-
+        public object Clone()
+        {
+            Question cloned = (Question)this.MemberwiseClone();
+            cloned.Answers = new AnswerList();
+            for (int i = 0; i < this.Answers.Count; i++)
+                cloned.Answers.Add(new Answer(this.Answers[i].Id, this.Answers[i].Text));
+            cloned.CorrectAnswer = new Answer(this.CorrectAnswer.Id, this.CorrectAnswer.Text);
+            return cloned;
+        }
         public abstract void Display();
         public abstract bool CheckAnswer(Answer studentAnswer);
 

@@ -21,7 +21,7 @@
   <Class Name="ExamSystem.Question">
     <Position X="16.25" Y="1.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAAAAAAAAAAAEgAADAQAAAAAAAIBAQAQAAAAAAAA=</HashCode>
+      <HashCode>BAAAAAAAAAAAAAAEgAADAQAAAAAAAIBAQAQAAAAAABA=</HashCode>
       <FileName>Questions\Question.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -30,6 +30,7 @@
     <ShowAsCollectionAssociation>
       <Property Name="Answers" />
     </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ExamSystem.TrueFalseQuestion">
     <Position X="13.5" Y="5.25" Width="2" />

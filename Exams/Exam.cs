@@ -101,16 +101,15 @@ namespace ExamSystem
 
             cloned.Questions = new Question[this.Questions.Length];
             for (int i = 0; i < this.Questions.Length; i++)
-                cloned.Questions[i] = this.Questions[i];
+                if (this.Questions[i] != null)
+                    cloned.Questions[i] = (Question)this.Questions[i].Clone();// 
 
-            
             cloned.QuestionAnswerDictionary = new Dictionary<Question, Answer>();
             foreach (var pair in this.QuestionAnswerDictionary)
-                cloned.QuestionAnswerDictionary[pair.Key] = pair.Value;
+                cloned.QuestionAnswerDictionary[pair.Key] = new Answer(pair.Value.Id, pair.Value.Text);
 
             return cloned;
         }
-
         public override bool Equals(object obj)
         {
             if (obj is Exam other)
