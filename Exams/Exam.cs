@@ -97,7 +97,18 @@ namespace ExamSystem
 
         public object Clone()
         {
-            return this.MemberwiseClone();
+            Exam cloned = (Exam)this.MemberwiseClone();
+
+            cloned.Questions = new Question[this.Questions.Length];
+            for (int i = 0; i < this.Questions.Length; i++)
+                cloned.Questions[i] = this.Questions[i];
+
+            
+            cloned.QuestionAnswerDictionary = new Dictionary<Question, Answer>();
+            foreach (var pair in this.QuestionAnswerDictionary)
+                cloned.QuestionAnswerDictionary[pair.Key] = pair.Value;
+
+            return cloned;
         }
 
         public override bool Equals(object obj)
